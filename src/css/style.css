@@ -26,15 +26,48 @@ svg {
   max-width: 100%;
   height: auto;
 }
+body {
+  background-color: lightgoldenrodyellow;
+}
 
 .grid {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--indent);
+  gap: 30px;
 }
 
 .grid-item {
-  flex-basis: calc(
-    (100% - (var(--indent) * (var(--items) - 1))) / var(--items)
-  );
+  flex-basis: calc((100% - (30px * (4 - 1))) / 4);
+}
+.header {
+  position: fixed;
+  width: 100vw;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: lightskyblue;
+}
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  padding: 60px 20px;
+}
+.gallary {
+  width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-radius: 0px;
+  background: #e0e0e0;
+  box-shadow: 6px 6px 13px #cecece, -6px -6px 13px #f2f2f2;
+}
+.photo-card .info {
+  padding: 10px;
 }
