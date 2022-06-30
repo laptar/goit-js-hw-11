@@ -37,7 +37,7 @@ body {
 }
 
 .grid-item {
-  flex-basis: calc((100% - (30px * (8 - 1))) / 8);
+  flex-basis: calc((100% - (15px * (8 - 1))) / 8);
 }
 .header {
   position: fixed;
@@ -55,7 +55,7 @@ body {
   padding: 60px 20px;
 }
 .gallary {
-  width: 1600px;
+  /* width: 1600px; */
   margin-left: auto;
   margin-right: auto;
 }
