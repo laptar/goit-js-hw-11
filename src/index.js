@@ -1,17 +1,21 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { searchImg, perPage } from './fetchPic';
 import { renderGallary } from './render';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 Notify.init({
   position: 'center-top',
   distance: '50px',
 });
 
-const gallaryEl = document.querySelector('.gallary');
+const gallaryEl = document.querySelector('.gallery');
 const formEl = document.querySelector('.search-form');
 const btnLoadMoreEl = document.querySelector('.load-more');
 let page = 1;
 let searchValue = '';
+
+let gallery = new SimpleLightbox('.gallery a');
 
 formEl.addEventListener('submit', onSubmit);
 btnLoadMoreEl.addEventListener('click', onClick);
@@ -21,6 +25,7 @@ function onClick() {
 
   searchImg(searchValue, page).then(data => {
     gallaryEl.insertAdjacentHTML('beforeend', renderGallary(data));
+    gallery.refresh();
     if (perPage * page >= data.totalHits) {
       btnLoadMoreEl.classList.remove('show');
     }
@@ -42,6 +47,7 @@ function onSubmit(evt) {
   searchImg(searchValue, page)
     .then(data => {
       gallaryEl.insertAdjacentHTML('beforeend', renderGallary(data));
+      gallery.refresh();
       console.log(data.totalHits);
       if (!data.hits.length) {
         Notify.failure(
