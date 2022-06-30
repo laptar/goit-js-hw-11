@@ -33,11 +33,11 @@ body {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 15px;
 }
 
 .grid-item {
-  flex-basis: calc((100% - (30px * (4 - 1))) / 4);
+  flex-basis: calc((100% - (30px * (8 - 1))) / 8);
 }
 .header {
   position: fixed;
@@ -70,4 +70,12 @@ body {
 }
 .photo-card .info {
   padding: 10px;
+}
+
+.load-more {
+  display: none;
+}
+.load-more.show {
+  display: block;
+  margin: 20px auto;
 }

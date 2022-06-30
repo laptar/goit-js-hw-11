@@ -1,14 +1,12 @@
-const gallaryEl = document.querySelector('.gallary');
-
 function renderGallary(data) {
-  console.log(data.hits);
+  // console.log(data.hits);
   const contentGallary = data.hits
     .map(
       ({ webformatURL, likes, views, comments, downloads }) =>
         `<div class="photo-card grid-item"><img src="${webformatURL}" alt="" loading="lazy"/><div class="info"><p class="info-item"><b>Likes&nbsp;</b>${likes}</p><p class="info-item"><b>Views&nbsp;</b>${views}</p><p class="info-item"><b>Comments&nbsp;</b>${comments}</p><p class="info-item"><b>Downloads&nbsp;</b>${downloads}</p></div></div>`
     )
     .join('');
-  gallaryEl.innerHTML = contentGallary;
+  return contentGallary;
 }
 
-export { renderGallary };
+export { renderGallary, gallaryEl };
